@@ -12,7 +12,8 @@ RUN apt-get update && apt-get install --no-install-recommends -fy \
         libncurses5-dev \
         libtool \
         libxml2-dev \
-        mercurial && \
+        mercurial \
+        wget && \
     hg clone https://bitbucket.org/pidgin/main && \
     cd /root/main && \
     hg update v2.11.0 && \
@@ -20,14 +21,19 @@ RUN apt-get update && apt-get install --no-install-recommends -fy \
     make install &&  \
     cd /root && \
     rm -fr main && \
+    wget https://github.com/Yelp/dumb-init/releases/download/v1.1.3/dumb-init_1.1.3_amd64.deb && \
+    dpkg -i dumb-init_*.deb && \
+    rm dumb-init_*.deb && \
     apt-get remove -y \
         build-essential \
         mercurial \
-        libtool && \
+        intltool \
+        libtool \
+        wget && \
     apt-get autoclean -y && \
     apt-get clean -y && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
 VOLUME /root/.purple
 ENV LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:/lib
-CMD /usr/local/bin/finch
+CMD /usr/bin/dumb-init /usr/local/bin/finch
