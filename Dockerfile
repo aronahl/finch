@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install --no-install-recommends -fy \
         wget && \
     hg clone https://bitbucket.org/pidgin/main && \
     cd /root/main && \
-    hg update v2.11.0 && \
+    hg update v2.12.0 && \
     ./autogen.sh --disable-gtkui --disable-gstreamer --disable-vv --disable-avahi --disable-dbus --disable-perl --disable-tcl && \
     make install &&  \
     cd /root && \
