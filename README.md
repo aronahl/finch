@@ -1,5 +1,5 @@
 # finch
-Docker build of [Finch](https://developer.pidgin.im/wiki/Using%20Finch]) on [Ubuntu 14.04](http://releases.ubuntu.com/14.04/) using [dumb-init](https://github.com/Yelp/dumb-init).
+Docker build of [Finch](https://developer.pidgin.im/wiki/Using%20Finch) on [Ubuntu 14.04](http://releases.ubuntu.com/14.04/) using [dumb-init](https://github.com/Yelp/dumb-init).
 
 ## Usage
 
